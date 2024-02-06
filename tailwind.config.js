@@ -33,6 +33,11 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        black: "#171717",
+        "black-2": "#000000",
+        "grey-2": "#7d7d7d",
+        "gold-2": "#f2c94c",
+        gold: "#FFD700",
       },
       borderRadius: {
         none: "0px",

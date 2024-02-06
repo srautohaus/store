@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-
+import { MantineProvider } from "@mantine/core"
 import Footer from "@modules/layout/templates/footer"
 import Nav from "@modules/layout/templates/nav"
 
@@ -12,9 +12,13 @@ export const metadata: Metadata = {
 export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
-      <Nav />
-      {props.children}
-      <Footer />
+      <MantineProvider>
+        <div className="bg-black text-white">
+          <Nav />
+          {props.children}
+          <Footer />
+        </div>
+      </MantineProvider>
     </>
   )
 }

@@ -27,7 +27,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
           {({ open, close }) => (
             <>
               <div className="relative flex h-full">
-                <Popover.Button className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
+                <Popover.Button className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none text-grey-2 hover:text-neutral-300 hover:underline underline-offset-4">
                   Menu
                 </Popover.Button>
               </div>
@@ -84,7 +84,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} SR Autohaus. All rights
                         reserved.
                       </Text>
                     </div>

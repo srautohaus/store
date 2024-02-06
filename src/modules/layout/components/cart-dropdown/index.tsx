@@ -2,7 +2,7 @@
 
 import { Popover, Transition } from "@headlessui/react"
 import { Cart } from "@medusajs/medusa"
-import { Button } from "@medusajs/ui"
+import { Button } from "@mantine/core"
 import { useParams, usePathname } from "next/navigation"
 import { Fragment, useEffect, useRef, useState } from "react"
 
@@ -79,7 +79,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <Popover.Button className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className="hover:text-neutral-300 hover:underline underline-offset-4 transition-all ease-out duration-200 text-grey-2"
             href="/cart"
           >{`Cart (${totalItems})`}</LocalizedClientLink>
         </Popover.Button>
@@ -163,7 +163,11 @@ const CartDropdown = ({
                     </span>
                   </div>
                   <LocalizedClientLink href="/cart" passHref>
-                    <Button className="w-full" size="large">
+                    <Button
+                      fullWidth
+                      color="black"
+                      className="w-full h-10 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-elevation-card-rest"
+                    >
                       Go to cart
                     </Button>
                   </LocalizedClientLink>

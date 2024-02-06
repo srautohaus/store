@@ -148,7 +148,7 @@ export default function ProductActions({
         <Button
           onClick={handleAddToCart}
           disabled={!inStock || !variant}
-          variant="primary"
+          variant="secondary"
           className="w-full h-10"
           isLoading={isAdding}
         >

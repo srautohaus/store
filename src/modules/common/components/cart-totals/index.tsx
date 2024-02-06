@@ -30,12 +30,12 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
+      <div className="flex flex-col gap-y-2 txt-medium text-white ">
         <div className="flex items-center justify-between">
           <span className="flex gap-x-1 items-center">
             Subtotal
             <Tooltip content="Cart total excluding shipping and taxes.">
-              <InformationCircleSolid color="var(--fg-muted)" />
+              <InformationCircleSolid color="white" />
             </Tooltip>
           </span>
           <span>{getAmount(subtotal)}</span>
@@ -66,7 +66,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
         </div>
       </div>
       <div className="h-px w-full border-b border-gray-200 my-4" />
-      <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
+      <div className="flex items-center justify-between text-white mb-2 txt-medium ">
         <span>Total</span>
         <span className="txt-xlarge-plus">{getAmount(total)}</span>
       </div>
