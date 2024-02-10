@@ -9,52 +9,57 @@ type LineItemPriceProps = {
   item: Omit<LineItem, "beforeInsert">
   region: Region
   style?: "default" | "tight"
+  text?: "dark" | "light"
 }
 
 const LineItemPrice = ({
   item,
   region,
   style = "default",
+  text = "dark" || "light",
 }: LineItemPriceProps) => {
   const originalPrice =
     (item.variant as CalculatedVariant).original_price * item.quantity
   const hasReducedPrice = (item.total || 0) < originalPrice
+  let textColorClass = text === "dark" ? "text-zinc-800" : "text-zinc-100"
 
   return (
-    <div className="flex flex-col gap-x-2 text-zinc-100 items-end">
-      <div className="text-left">
-        {hasReducedPrice && (
-          <>
-            <p>
+    <div className="flex flex-col gap-x-2  items-end">
+      <div className={textColorClass}>
+        <div className="text-left">
+          {hasReducedPrice && (
+            <>
+              <p>
+                {style === "default" && (
+                  <span className={textColorClass}>Original: </span>
+                )}
+                <span className="line-through text-ui-fg-muted">
+                  {formatAmount({
+                    amount: originalPrice,
+                    region: region,
+                    includeTaxes: false,
+                  })}
+                </span>
+              </p>
               {style === "default" && (
-                <span className="text-zinc-100">Original: </span>
+                <span className="text-ui-fg-interactive">
+                  -{getPercentageDiff(originalPrice, item.total || 0)}%
+                </span>
               )}
-              <span className="line-through text-ui-fg-muted">
-                {formatAmount({
-                  amount: originalPrice,
-                  region: region,
-                  includeTaxes: false,
-                })}
-              </span>
-            </p>
-            {style === "default" && (
-              <span className="text-ui-fg-interactive">
-                -{getPercentageDiff(originalPrice, item.total || 0)}%
-              </span>
-            )}
-          </>
-        )}
-        <span
-          className={clx("text-base-regular", {
-            "text-ui-fg-interactive": hasReducedPrice,
-          })}
-        >
-          {formatAmount({
-            amount: item.total || 0,
-            region: region,
-            includeTaxes: false,
-          })}
-        </span>
+            </>
+          )}
+          <span
+            className={clx("text-base-regular", {
+              "text-ui-fg-interactive": hasReducedPrice,
+            })}
+          >
+            {formatAmount({
+              amount: item.total || 0,
+              region: region,
+              includeTaxes: false,
+            })}
+          </span>
+        </div>
       </div>
     </div>
   )

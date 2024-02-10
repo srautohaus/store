@@ -1,6 +1,5 @@
 import { LineItem, Region } from "@medusajs/medusa"
 import { Heading, Table } from "@medusajs/ui"
-
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 
@@ -16,8 +15,8 @@ const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
         <Heading className="text-[2rem] leading-[2.75rem]">Cart</Heading>
       </div>
       <Table>
-        <Table.Header className="border-t-0">
-          <Table.Row className="text-white bg-black txt-medium-plus">
+        <Table.Header className="border-t-0 ">
+          <Table.Row className="bg-black hover:bg-black-2 text-white no-hover">
             <Table.HeaderCell className="!pl-0">Item</Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
             <Table.HeaderCell>Quantity</Table.HeaderCell>

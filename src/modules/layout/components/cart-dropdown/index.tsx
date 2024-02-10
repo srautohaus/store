@@ -132,11 +132,12 @@ const CartDropdown = ({
                                 <LineItemOptions variant={item.variant} />
                                 <span>Quantity: {item.quantity}</span>
                               </div>
-                              <div className="flex justify-end">
+                              <div className="flex justify-end ">
                                 <LineItemPrice
                                   region={cartState.region}
                                   item={item}
                                   style="tight"
+                                  text="dark"
                                 />
                               </div>
                             </div>
@@ -184,7 +185,9 @@ const CartDropdown = ({
                     <LocalizedClientLink href="store">
                       <>
                         <span className="sr-only">Go to all products page</span>
-                        <Button onClick={close}>Explore products</Button>
+                        <Button color="black" onClick={close}>
+                          Explore products
+                        </Button>
                       </>
                     </LocalizedClientLink>
                   </div>
